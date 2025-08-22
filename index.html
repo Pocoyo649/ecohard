@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descarte Correto de Lixo Eletrônico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #2E8B57, #228B22);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .panfleto {
+            background: white;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E8B57, #32CD32);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="80" r="2.5" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            color: #2E8B57;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #32CD32;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2::before {
+            content: '♻️';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .section p {
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .steps {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 5px solid #32CD32;
+        }
+
+        .steps ol {
+            padding-left: 20px;
+        }
+
+        .steps li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .steps li strong {
+            color: #2E8B57;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #32CD32, #228B22);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.05) 10px,
+                rgba(255, 255, 255, 0.05) 20px
+            );
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        .highlight-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-box p {
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .icon-item {
+            text-align: center;
+            margin: 10px;
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .icon-item .emoji {
+            font-size: 2.5em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .icon-item span {
+            font-size: 0.9em;
+            color: #666;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header .subtitle {
+                font-size: 1em;
+            }
+
+            .section h2 {
+                font-size: 1.2em;
+            }
+        }
+
+        .footer {
+            background: #2E8B57;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="panfleto">
+        <div class="header">
+            <h1>Descarte Correto de Lixo Eletrônico</h1>
+            <p class="subtitle">Faça a Sua Parte pelo Meio Ambiente!</p>
+        </div>
+
+        <div class="content">
+            <div class="left-column">
+                <div class="section">
+                    <h2>O que é Lixo Eletrônico?</h2>
+                    <p>Lixo eletrônico, ou e-lixo, refere-se a todos os equipamentos eletrônicos e seus componentes que foram descartados por não terem mais utilidade. Isso inclui celulares, computadores, televisores, eletrodomésticos, pilhas e baterias.</p>
+                    
+                    <div class="icons">
+                        <div class="icon-item">
+                            <span class="emoji">📱</span>
+                            <span>Celulares</span>
+                        </div>
+                        <div class="icon-item">
+                            <span class="emoji">💻</span>
+                            <span>Computadores</span>
+                        </div>
+                        <div class="icon-item">
+                            <span class="emoji">📺</span>
+                            <span>Televisores</span>
+                        </div>
+                        <div class="icon-item">
+                            <span class="emoji">🔋</span>
+                            <span>Pilhas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Por que descartar corretamente?</h2>
+                    <p>O descarte incorreto do lixo eletrônico é um problema ambiental grave. Esses materiais contêm substâncias tóxicas como chumbo, cádmio, mercúrio e berílio, que podem contaminar o solo e a água, prejudicando a saúde humana e a biodiversidade. Além disso, muitos componentes podem ser reciclados e reutilizados, evitando a extração de novas matérias-primas e economizando energia.</p>
+                </div>
+
+                <div class="image-container">
+                    <img src="/home/ubuntu/panfleto_lixo_eletronico/imagens/lixo_eletronico_reciclagem.png" alt="Lixo eletrônico com símbolo de reciclagem">
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section">
+                    <h2>Como descartar seu E-lixo?</h2>
+                    <div class="steps">
+                        <ol>
+                            <li><strong>Não jogue no lixo comum:</strong> Separe do lixo doméstico.</li>
+                            <li><strong>Apague seus dados:</strong> Remova informações pessoais dos dispositivos.</li>
+                            <li><strong>Procure pontos de coleta:</strong> Lojas de eletrônicos, cooperativas, ONGs.</li>
+                            <li><strong>Logística Reversa:</strong> Programas de fabricantes e varejistas.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="image-container">
+                    <img src="/home/ubuntu/panfleto_lixo_eletronico/imagens/descarte_lixeira.png" alt="Descarte correto em lixeira apropriada">
+                </div>
+
+                <div class="highlight-box">
+                    <h3>🌍 Faça a Diferença!</h3>
+                    <p>Ao descartar conscientemente, você protege o meio ambiente e promove a economia circular!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💚 Pequenas atitudes geram grandes impactos para o nosso planeta! 💚</p>
+        </div>
+    </div>
+</body>
+</html>
